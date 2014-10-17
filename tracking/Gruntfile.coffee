@@ -17,7 +17,7 @@ module.exports = (grunt) ->
     phonegap:
       config:
         plugins: []
-        platforms: []
+        platforms: ['android']
         config:
           template: '_config.xml'
           data:
@@ -55,5 +55,11 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-bower-task'
 
   grunt.registerTask 'server', ->
+    grunt.task.run 'bower:install'
     grunt.task.run 'connect:server'
     grunt.task.run 'watch:all'
+
+  grunt.registerTask 'android', ->
+    grunt.task.run 'bower:install'
+    grunt.task.run 'phonegap:build:android'
+    grunt.task.run 'phonegap:run:android'

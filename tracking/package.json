@@ -1,6 +1,6 @@
 {
-  "name": "tracking",
-  "description": "The best project ever.",
+  "name": "base_line",
+  "description": "A base line for my projects.",
   "homepage": "",
   "author": {
     "name": "Victor Cabello",
@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/intvmca/tracking.git"
+    "url": "https://github.com/VictorCabello/PhonegapExsamples.git"
   },
   "bugs": {
-    "url": "https://github.com/intvmca/tracking/issues"
+    "url": "https://github.com/VictorCabello/tracking/issues"
   },
   "licenses": [
     {

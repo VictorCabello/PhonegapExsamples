@@ -7,9 +7,9 @@
   },
   "exportsOverride": {
     "bootstrap": {
-      "js": "dist/js/*min..js",
-      "css": "dist/css/*min.css",
-      "fonts": "dist/fonts/*"
+      "js":    "./dist/js/*min.js",
+      "css":   "./dist/css/*min.css",
+      "fonts": "./dist/fonts/*"
     },
     "requirejs": {
       "js": "require.js"

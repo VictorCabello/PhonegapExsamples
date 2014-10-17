@@ -7,11 +7,11 @@ module.exports = (grunt) ->
       install:
         options:
           targetDir: './www/lib',
-          layout: 'byType',
+          layout: 'byComponent',
           install: true,
           verbose: true,
-          cleanTargetDir: false,
-          cleanBowerDir: false,
+          cleanTargetDir: true,
+          cleanBowerDir: true,
 
 
     phonegap:

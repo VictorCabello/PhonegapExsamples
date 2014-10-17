@@ -3,6 +3,9 @@ module.exports = (grunt) ->
   # Project configuration.
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
+    bower:
+      install:
+        targetDir: './lab'
 
     phonegap:
       config:
@@ -42,6 +45,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-connect'
   grunt.loadNpmTasks 'grunt-phonegap'
+  grunt.loadNpmTasks 'grunt-bower-task'
 
   grunt.registerTask 'server', ->
     grunt.task.run 'connect:server'

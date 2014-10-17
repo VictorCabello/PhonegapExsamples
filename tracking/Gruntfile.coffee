@@ -5,7 +5,14 @@ module.exports = (grunt) ->
     pkg: grunt.file.readJSON 'package.json'
     bower:
       install:
-        targetDir: './lab'
+        options:
+          targetDir: './www/lib',
+          layout: 'byType',
+          install: true,
+          verbose: true,
+          cleanTargetDir: false,
+          cleanBowerDir: false,
+
 
     phonegap:
       config:

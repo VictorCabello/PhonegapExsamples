@@ -1,0 +1,31 @@
+{
+  "name": "CanvasSample",
+  "description": "A use of canvas sample.",
+  "homepage": "",
+  "author": {
+    "name": "Victor Cabello",
+    "email": "vmeca87@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VictorCabello/PhonegapExsamples.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VictorCabello/tracking/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "/blob/master/LICENSE-MIT"
+    }
+  ],
+  "version": "0.0.0",
+  "main": "Gruntfile.coffee",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-phonegap": "~0.15.1",
+    "grunt-contrib-connect": "~0.7.1",
+    "grunt-contrib-watch": "~0.4.0",
+    "grunt-bower-task": "~0.4.0"
+  }
+}

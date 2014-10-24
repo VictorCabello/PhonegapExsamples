@@ -90,7 +90,8 @@ var app = {
         canvas.addEventListener('mousedown', this.ev_canvas, false);
         canvas.addEventListener('mousemove', this.ev_canvas, false);
         canvas.addEventListener('mouseup',   this.ev_canvas, false);
-        document.addEventListener("touchend", function(e) { e.preventDefault(); }, false);
+        //document.addEventListener("touchend", function(e) { e.preventDefault(); }, false);
+        //document.addEventListener("touchmove", function(e) { e.preventDefault(); }, false);
         canvas.addEventListener("touchstart", this.ev_canvas, false);
         canvas.addEventListener("touchmove", this.ev_canvas, false);
         canvas.addEventListener("touchend", this.ev_canvas, false);
@@ -134,11 +135,21 @@ var app = {
         // This is called when you start holding down the mouse button.
         // This starts the pencil drawing.
         this.mousedown = function (ev) {
+            ev.preventDefault();
             context.beginPath();
             context.moveTo(ev._x, ev._y);
             tool.started = true;
         };
-        this.touchstart = this.mousedown;
+        this.touchstart =  function(ev) {
+            ev.preventDefault();
+            console.log("start");
+            console.log(ev);
+            context.beginPath();
+            x = ev.changedTouches[0].clientX;
+            y = ev.changedTouches[0].clientY;
+            context.moveTo(x, y);
+            tool.started = true;
+        };
 
         // This function is called every time you move the mouse. Obviously, it only 
         // draws if the tool.started state is set to true (when you are holding down 
@@ -149,7 +160,20 @@ var app = {
             context.stroke();
           }
         };
-        this.touchmove = function(ev){ console.log(ev) };
+        this.touchmove = function(ev){ 
+          ev.preventDefault();
+          console.log("move");
+          console.log(ev);
+          console.log(tool.started);
+          x = ev.changedTouches[0].clientX;
+          y = ev.changedTouches[0].clientY;
+          if (tool.started) {
+            console.log("x :"+ x);
+            console.log("y :" + y);
+            context.lineTo(x, y);
+            context.stroke();
+          }
+        };
 
         // This is called when you release the mouse button.
         this.mouseup = function (ev) {
@@ -159,7 +183,15 @@ var app = {
             main.img_update();
           }
         };
-        this.touchend = this.mouseup;
+        this.touchend = function(ev){
+          console.log("end");
+          console.log(tool.started);
+          if (tool.started) {
+            tool.touchmove(ev);
+            tool.started = false;
+            main.img_update();
+          }
+        };
       };
 
       main = this;
